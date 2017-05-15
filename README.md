@@ -33,4 +33,10 @@ https://www.figma.com/file/fBUooklmGXCTFdV48T7gXWdo/Swap-Deck-Mockup
 
 http://i882.photobucket.com/albums/ac27/funk81/dbdesignerschemaswapdeck.png
 
+# Trello board:
+
+https://trello.com/b/jghqxusC/swap-deck
+
+
+
 

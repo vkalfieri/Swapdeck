@@ -1,13 +1,14 @@
 
+<!-- Bootstrap Dropdown Hover CSS -->
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/bootstrap-dropdownhover.min.css" rel="stylesheet">
+
    <div class="header-area">
    <div class="container">
    <div class="row">
    <div class="col-md-8">
    <div class="user-menu">
     <ul>
-    <!-- <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-    <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-    <li><a href="#"><i class="fa fa-user"></i> My Cart</a></li> -->
     <li>  <%= link_to 'Sign Up', new_user_registration_path %></li>
     <li> <%= link_to 'Login', new_user_session_path %></li>
    </ul>
@@ -47,21 +48,55 @@
        </button>
       </div>
       <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" data-hover="dropdown" data-animations="fadeInDown fadeInRight fadeInUp fadeInLeft">
           <li class="active"><a href="home.html">Home</a></li>
           <li><a href="#">Cart</a></li>
           <li><a href="#">Checkout</a></li>
           <li><a href="#">Contact</a></li>
-          <li>Categories:</li>
-          <li><a href="#">Sports</a></li>
-          <li><a href="#">Pop Culture</a></li>
-          <li><a href="#">Tazos</a></li>
-          <li><a href="#">Woolworths</a></li>
-         </ul>
+
+          </ul>
         </div>
         </div>
         </div>
         </div> <!-- End mainmenu area -->
+
+        <div class="dropdown">
+  <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown"
+  data-hover="dropdown" data-animations="flipInX flipInY flipInX flipInY" aria-expanded="true">
+   Categories <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <!-- <li><a href="#">Sports</a></li> -->
+    <a href="#">Sports</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">AFL</a></li>
+      <li><a href="#">NRL</a></li>
+
+      <li class="dropdown">
+        <a href="#">One more dropdown</a>
+        <ul class="dropdown-menu">
+    <li><a href="#">Pop Culture</a></li>
+    <li><a href="#">Tazos</a></li>
+    <li><a href="#">Woolworths Collectibles</a></li>
+    <li class="dropdown">
+      <a href="#">One more dropdown</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li class="dropdown">
+          <a href="#">One more dropdown</a>
+          <ul class="dropdown-menu">
+          ...
+          </ul>
+        </li>
+        <li><a href="#">Something else here</a></li>
+        <li><a href="#">Separated link</a></li>
+       </ul>
+    </li>
+    <li><a href="#">Something else here</a></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
 
     <div class="slider-area">
     <div class="zigzag-bottom"></div>
@@ -324,3 +359,5 @@
 
     <!-- Main Script -->
     <script src="js/main.js"></script>
+    <!-- Bootstrap Dropdown Hover JS -->
+    <script src="js/bootstrap-dropdownhover.min.js"></script>

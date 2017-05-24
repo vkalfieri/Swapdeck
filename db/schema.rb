@@ -10,81 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512122222) do
+ActiveRecord::Schema.define(version: 20170503061123) do
 
   create_table "categories", force: :cascade do |t|
-    t.integer  "category_id"
     t.string   "category_name"
-    t.string   "subcategory"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   create_table "deliveries", force: :cascade do |t|
-    t.integer  "delivery_id"
     t.integer  "delivery_type"
-    t.integer  "user_id_id"
-    t.integer  "listing_id_id"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["listing_id_id"], name: "index_deliveries_on_listing_id_id"
-    t.index ["user_id_id"], name: "index_deliveries_on_user_id_id"
-  end
-
-  create_table "listings", force: :cascade do |t|
-    t.integer  "listing_id"
-    t.text     "description"
-    t.integer  "condition_id_id"
-    t.integer  "card_number"
-    t.string   "card_name"
-    t.text     "card_set"
-    t.integer  "category_id_id"
-    t.integer  "subcategory_id_id"
-    t.integer  "delivery_id_id"
-    t.decimal  "price"
-    t.integer  "trade_id_id"
-    t.integer  "seller_id_id"
-    t.integer  "user_id_id"
-    t.integer  "stripe_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["category_id_id"], name: "index_listings_on_category_id_id"
-    t.index ["condition_id_id"], name: "index_listings_on_condition_id_id"
-    t.index ["delivery_id_id"], name: "index_listings_on_delivery_id_id"
-    t.index ["seller_id_id"], name: "index_listings_on_seller_id_id"
-    t.index ["subcategory_id_id"], name: "index_listings_on_subcategory_id_id"
-    t.index ["trade_id_id"], name: "index_listings_on_trade_id_id"
-    t.index ["user_id_id"], name: "index_listings_on_user_id_id"
+    t.index ["user_id"], name: "index_deliveries_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer  "profile_id"
-    t.integer  "listing_id_id"
-    t.integer  "user_id_id"
+    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "avatar"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["listing_id_id"], name: "index_profiles_on_listing_id_id"
-    t.index ["user_id_id"], name: "index_profiles_on_user_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "subcategories", force: :cascade do |t|
-    t.integer  "subcategory_id"
     t.string   "subcategory_name"
-    t.integer  "category_id_id"
+    t.integer  "category_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["category_id_id"], name: "index_subcategories_on_category_id_id"
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
   create_table "trades", force: :cascade do |t|
     t.integer  "trade_type"
-    t.integer  "trade_id"
     t.integer  "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_trades_on_buyer_id"
   end
 
   create_table "users", force: :cascade do |t|

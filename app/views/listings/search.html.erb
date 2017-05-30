@@ -1,0 +1,8 @@
+
+
+<h2><%= @category.category_name %> category</h2>
+ <% if @subcategory.present? %>
+<h3><%= @subcategory.subcategory_name %> subcategory</h3>
+ <% end %>
+
+<a href="<%= root_path %>">home</a>

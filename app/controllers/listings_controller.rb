@@ -3,6 +3,16 @@ class ListingsController < ApplicationController
 
   # GET /listings
   # GET /listings.json
+def search
+  if params[:category_id].present?
+	@category = Category.find(params[:category_id])
+	@subcategory = nil
+elsif params[:subcategory_id].present?
+	@subcategory = Subcategory.find(params[:subcategory_id])
+	@category = Category.find(@subcategory.category_id)
+end
+  end
+
   def index
     @listings = Listing.all
   end
@@ -69,6 +79,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:listing_id, :description, :condition_id_id, :card_number, :card_name, :card_set, :category_id_id, :subcategory_id_id, :delivery_id_id, :price, :trade_id_id, :seller_id_id, :user_id_id, :stripe_id)
+      params.require(:listing).permit(:listing_id, :description, :card_number, :card_name, :card_set, :price,  :stripe_id)
     end
 end

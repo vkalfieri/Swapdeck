@@ -16,29 +16,16 @@
     <%= f.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= f.label :card_number %>
-    <%= f.number_field :card_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :card_name %>
-    <%= f.text_field :card_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :card_set %>
-    <%= f.text_area :card_set %>
-  </div>
 
   <div class="field">
     <%= f.label :price %>
     <%= f.text_field :price %>
   </div>
 
+  
   <div class="field">
-    <%= f.label :stripe_id %>
-    <%= f.number_field :stripe_id %>
+    <%= f.label :subcategory %>
+    <%= f.select :subcategory, options_for_select(@options_for_select_ary) %>
   </div>
 
   <div class="actions">

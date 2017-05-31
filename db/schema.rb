@@ -21,21 +21,24 @@ ActiveRecord::Schema.define(version: 20170529102238) do
   create_table "deliveries", force: :cascade do |t|
     t.integer  "delivery_type"
     t.integer  "user_id"
+    t.integer  "listing_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["listing_id"], name: "index_deliveries_on_listing_id"
     t.index ["user_id"], name: "index_deliveries_on_user_id"
   end
 
   create_table "listings", force: :cascade do |t|
     t.integer  "price"
-    t.string   "delivery_type"
+    t.integer  "card_number"
+    t.string   "card_name"
+    t.string   "card_set"
+    t.string   "condition"
     t.text     "description"
-    t.integer  "category_id"
     t.integer  "subcategory_id"
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["category_id"], name: "index_listings_on_category_id"
     t.index ["subcategory_id"], name: "index_listings_on_subcategory_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end

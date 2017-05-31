@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_options, only: [:new, :edit, :update, :create]
   # GET /listings
   # GET /listings.json
 def search
@@ -22,14 +22,21 @@ end
   def show
   end
 
+
+
   # GET /listings/new
   def new
+
     @listing = Listing.new
   end
 
   # GET /listings/1/edit
   def edit
   end
+
+
+
+
 
   # POST /listings
   # POST /listings.json
@@ -77,8 +84,12 @@ end
       @listing = Listing.find(params[:id])
     end
 
+    def set_options
+      @options_for_select_ary = Subcategory.pluck(:subcategory_name)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:listing_id, :description, :card_number, :card_name, :card_set, :price,  :stripe_id)
+      params.require(:listing).permit(:id, :description, :price, :category_name, :subcategory_name )
     end
 end

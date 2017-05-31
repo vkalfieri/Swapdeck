@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
 
   root 'pages#home'
+  get 'pages/about' => "pages#about", :as => :pages_about
 end

@@ -5,7 +5,7 @@ ruby '2.3.1'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
 # sqlite3 for development and test database
-gem 'sqlite3', group: [:development, :test]
+# gem 'sqlite3', group: [:development, :test]
 #postgres for production database
 gem 'pg', group: :production
 

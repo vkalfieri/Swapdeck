@@ -13,10 +13,15 @@
 
 <p>
   <strong>Subcategory:</strong>
-  <%= @listing.subcategory_id %>
+  <%= Subcategory.find(@listing.subcategory_id).subcategory_name %>
+</p>
+
+<p>
+  <strong>Card Image:</strong>
+  <%= image_tag @listing.image_url(:half).to_s %>
 </p>
 
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %> |
-<%= link_to 'Home', root_path %>
+<%= link_to 'Home', pages_home_url  %>

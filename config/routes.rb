@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :trades
 
 
-  root 'pages#home'
+  root 'pages#splash'
   get 'pages/about' => "pages#about", :as => :pages_about
+  get 'pages/contact' => "pages#contact", :as => :pages_contact
+  get 'pages/home' => "pages#home", :as => :pages_home
 end

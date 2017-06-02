@@ -85,11 +85,12 @@ end
     end
 
     def set_options
-      @options_for_select_ary = Subcategory.pluck(:subcategory_name)
+      @options_for_select_ary = Subcategory.all.collect {|subcategory| [ subcategory.subcategory_name, subcategory.id ] }
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:id, :description, :price, :category_name, :subcategory_name )
+      params.require(:listing).permit(:id, :description, :price, :subcategory_id, :image)
     end
 end
